@@ -102,8 +102,7 @@ abstract class JsonOpenNode implements Widget {
   List<Widget> buildChild();
 }
 
-class JsonViewerMapNode extends StatefulWidget
-    implements JsonNode<Map<String, dynamic>>, JsonOpenNode {
+class JsonViewerMapNode extends StatefulWidget implements JsonNode<Map<String, dynamic>>, JsonOpenNode {
   @override
   State<StatefulWidget> createState() => JsonViewerMapNodeState();
 
@@ -158,17 +157,21 @@ class JsonViewerMapNodeState extends State<JsonViewerMapNode> {
             Icon(widget.isOpen ? Icons.arrow_drop_down : Icons.arrow_right),
             Text(
               widget.nodeName,
-              style: TextStyle(color: Colors.indigo),
+              style: TextStyle(
+                color: Colors.indigo,
+              ),
             )
           ],
         ));
     if (widget.isOpen) {
       result = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           result,
           Padding(
             padding: EdgeInsets.only(left: widget.leftOffset),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: widget.buildChild(),
             ),
           )
@@ -182,8 +185,7 @@ class JsonViewerMapNodeState extends State<JsonViewerMapNode> {
 
 /// list类型的节点
 /// 如: [value1,value2]
-class JsonViewerListNode extends StatefulWidget
-    implements JsonNode<List<dynamic>>, JsonOpenNode {
+class JsonViewerListNode extends StatefulWidget implements JsonNode<List<dynamic>>, JsonOpenNode {
   @override
   State<StatefulWidget> createState() => JsonViewerListNodeState();
 
@@ -247,11 +249,13 @@ class JsonViewerListNodeState extends State<JsonViewerListNode> {
         ));
     if (widget.isOpen) {
       result = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           result,
           Padding(
             padding: EdgeInsets.only(left: widget.leftOffset),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: widget.buildChild(),
             ),
           )
