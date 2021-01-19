@@ -285,7 +285,7 @@ class JsonViewerNode extends StatelessWidget implements JsonNode {
     }
 
     return Padding(
-      padding: EdgeInsets.only(left: 24),
+      padding: EdgeInsets.only(left: leftOffset),
       child: Row(
         children: <Widget>[
           Text(
