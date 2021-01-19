@@ -303,7 +303,7 @@ class JsonViewerNode extends StatelessWidget implements JsonNode {
     }
 
     return Padding(
-      padding: EdgeInsets.only(left: leftOffset),
+      padding: EdgeInsets.only(left: parent == null ? 0 : 24),
       child: Row(
         children: <Widget>[
           Text(
