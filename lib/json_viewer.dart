@@ -70,9 +70,27 @@ class JsonViewerRootState extends State<JsonViewerRoot> {
     super.initState();
   }
 
+  _jsonObjType(x) {
+    if (x is String) {
+      return 'string';
+    } else if (x is num) {
+      return 'number';
+    } else if (x is Map) {
+      return 'object';
+    } else if (x is List) {
+      return 'array';
+    } else if (x is bool) {
+      return 'boolean';
+    } else if (x == null) {
+      return 'null';
+    } else {
+      return 'unknown';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return this.widget.onBuildNode(null, "[root]", this.widget.jsonObj);
+    return this.widget.onBuildNode(null, "[${_jsonObjType(widget.jsonObj)}]", this.widget.jsonObj);
   }
 }
 
